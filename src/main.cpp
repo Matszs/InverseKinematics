@@ -8,6 +8,6 @@ int main() {
     arm.addSegment(Segment(10, 40));
     arm.addSegment(Segment(5, 30));
     arm.setDestinationPoint(4,5);
-    arm.calculateAngles();
+    arm.run();
     return 0;
 }
