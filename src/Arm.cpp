@@ -5,12 +5,12 @@
 #include <list>
 #include "Arm.h"
 #include "Segment.h"
-#include "Point.h"
+#include "Vector.h"
 
 std::list<Segment> segments;
 
 void Arm::setDestinationPoint(int x, int y) {
-    destinationPoint = Point(x, y);
+    destination = Vector(x, y);
 }
 
 void Arm::addSegment(Segment segment) {
@@ -21,6 +21,11 @@ void Arm::addSegment(Segment segment) {
 }
 
 void Arm::run() {
-    segments.back().turnTowardsDestinationPoint(this->destinationPoint);
+    segments.back().turnTowardsDestinationPoint(this->destination);
+}
 
+void Arm::print() {
+    for (auto &segment : segments) {
+        segment.print();
+    }
 }

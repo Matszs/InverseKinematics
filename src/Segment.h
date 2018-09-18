@@ -6,18 +6,21 @@
 #define ROBOTARMMOTIONANDVISION_SEGMENT_H
 
 
-#include "Point.h"
+#include "Vector.h"
 
 class Segment {
 public:
     Segment(double length, double angle = 0 );
     Segment *setPreviousSegment;
-    void turnTowardsDestinationPoint(Point);
+    void turnTowardsDestinationPoint(Vector);
+    void print();
 
 private:
     double length;
     double angle;
     Segment *previousSegment = nullptr;
+
+    Vector getRootPosition();
 };
 
 

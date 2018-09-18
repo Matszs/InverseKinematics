@@ -6,18 +6,20 @@
 #define ROBOTARMMOTIONANDVISION_ARM_H
 
 
-#include "Point.h"
 #include "Segment.h"
+#include "Vector.h"
 
 class Arm {
 
 private:
-    Point destinationPoint = Point(0, 0);
+    Vector destination = Vector(0, 0);
 
 public:
     void setDestinationPoint(int x, int y);
     void addSegment(Segment segment);
     void run();
+
+    void print();
 };
 
 

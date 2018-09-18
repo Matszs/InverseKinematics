@@ -9,10 +9,23 @@
 class Vector {
 public:
     Vector(double x, double y);
+    Vector(double x, double y, double z);
+
+    double squaredDistance(Vector vector);
+    double getX();
+    double getY();
+    double getZ();
+
+    void normalize();
+
+    double getDotProduct(Vector vector);
+
+    Vector getCrossProduct(Vector vector);
 
 private:
     double x;
     double y;
+    double z;
 };
 
 
