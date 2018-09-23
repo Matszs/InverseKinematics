@@ -14,13 +14,15 @@ public:
     Segment *setPreviousSegment;
     void turnTowardsDestinationPoint(Vector);
     void print();
+    Vector getEndpoint();
+    Vector getEndpoint(Vector root);
+    Vector getRootPosition();
 
 private:
     double length;
     double angle;
     Segment *previousSegment = nullptr;
 
-    Vector getRootPosition();
 };
 
 

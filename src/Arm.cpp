@@ -2,6 +2,7 @@
 // Created by Keut on 5-9-2018.
 //
 
+#include <iostream>
 #include <list>
 #include "Arm.h"
 #include "Segment.h"
@@ -24,8 +25,21 @@ void Arm::run() {
     segments.back().turnTowardsDestinationPoint(this->destination);
 }
 
-void Arm::print() {
+void Arm::print(bool printAllSegments) {
+    Vector endpoint = segments.front().getRootPosition();
     for (auto &segment : segments) {
-        segment.print();
+        endpoint = endpoint.add(segment.getEndpoint(endpoint));
+        if(printAllSegments) {
+            segment.print();
+        }
     }
+    std::cout << "Real endpoint: " << endpoint.getX() << "," << endpoint.getY() << "," << endpoint.getZ() << std::endl;
+}
+
+void Arm::printRealEndpoint() {
+    Vector endpoint = segments.front().getRootPosition();
+    for (auto &segment : segments) {
+        endpoint = endpoint.add(segment.getEndpoint(endpoint));
+    }
+    std::cout << "Real endpoint: " << endpoint.getX() << "," << endpoint.getY() << "," << endpoint.getZ() << std::endl;
 }

@@ -3,6 +3,7 @@
 //
 
 #include <cmath>
+#include <ostream>
 #include "Vector.h"
 
 Vector::Vector(double x, double y) {
@@ -49,5 +50,17 @@ Vector Vector::getCrossProduct(Vector vector) {
             this->getY() * vector.getZ() - this->getZ() * vector.getY(),
             this->getZ() * vector.getX() - this->getX() * vector.getZ(),
             this->getX() * vector.getY() - this->getY() * vector.getX()
-            );
+    );
+}
+
+std::ostream &operator<<(std::ostream &os, Vector &obj) {
+    os << obj.getX() << ", " << obj.getY() << ", " << obj.getZ();
+    return os;
+}
+
+Vector Vector::add(Vector other) {
+    return Vector(
+            this->getX() + other.getX(),
+            this->getY() + other.getY()
+    );
 }

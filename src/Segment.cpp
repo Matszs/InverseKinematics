@@ -1,12 +1,14 @@
 //
 // Created by Keut on 5-9-2018.
 //
+#define _USE_MATH_DEFINES /* Use for declaring M_PI in cmath */
 
 #include <iostream>
 #include <cmath>
 #include "Segment.h"
 
 #define RADTODEG(angleRadians) ((angleRadians) * 180.0 / M_PI)
+#define DEGTORAD(angleDegrees) ((angleDegrees) * M_PI / 180.0)
 
 
 Segment::Segment(double length, double angle) {
@@ -52,4 +54,23 @@ void Segment::print() {
 
 Vector Segment::getRootPosition() {
     return Vector(0, 0);
+}
+
+Vector Segment::getEndpoint() {
+    Vector root = this->getRootPosition();
+    double angleInRad = DEGTORAD(this->angle);
+    Vector end = Vector(
+            cos(angleInRad) * this->length,
+            sin(angleInRad) * this->length
+            );
+    return end;
+}
+
+Vector Segment::getEndpoint(Vector root) {
+    double angleInRad = DEGTORAD(this->angle);
+    Vector end = Vector(
+            cos(angleInRad) * this->length,
+            sin(angleInRad) * this->length
+            );
+    return end;
 }

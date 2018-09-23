@@ -16,10 +16,14 @@ private:
 
 public:
     void setDestinationPoint(int x, int y);
+
     void addSegment(Segment segment);
+
     void run();
 
-    void print();
+    void print(bool printAllSegments);
+
+    void printRealEndpoint();
 };
 
 
