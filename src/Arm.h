@@ -13,6 +13,7 @@ class Arm {
 
 private:
     Vector destination = Vector(0, 0);
+    double threshold = 0;
 
 public:
     void setDestinationPoint(int x, int y);
@@ -24,6 +25,10 @@ public:
     void print(bool printAllSegments);
 
     void printRealEndpoint();
+
+    void setThreshold(double distance);
+
+
 };
 
 

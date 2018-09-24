@@ -43,3 +43,7 @@ void Arm::printRealEndpoint() {
     }
     std::cout << "Real endpoint: " << endpoint.getX() << "," << endpoint.getY() << "," << endpoint.getZ() << std::endl;
 }
+
+void Arm::setThreshold(double distance) {
+    this->threshold = distance;
+}
