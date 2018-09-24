@@ -8,6 +8,6 @@ int main() {
     arm.setDestinationPoint(0, 10);
     arm.setThreshold(1);
     arm.run();
-    arm.print();
+    arm.print(true);
     return 0;
 }
