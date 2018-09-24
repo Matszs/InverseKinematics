@@ -21,25 +21,25 @@ void Segment::turnTowardsDestinationPoint(Vector destination) {
     Vector currentEnd = Vector(
             cos(this->angle) * this->length,
             sin(this->angle) * this->length
-            );
+    );
     double threshold = 1.0;
-    if(currentEnd.squaredDistance(destination) > threshold) {
+    if (currentEnd.squaredDistance(destination) > threshold) {
         Vector currentVector = Vector(
                 currentEnd.getX() - rootPosition.getX(),
                 currentEnd.getY() - rootPosition.getY()
-                );
+        );
         Vector targetVector = Vector(
                 destination.getX() - rootPosition.getX(),
                 destination.getY() - rootPosition.getY()
-                );
+        );
         currentVector.normalize();
         targetVector.normalize();
         double cosAngle = targetVector.getDotProduct(currentVector);
-        if(cosAngle < 0.99999) {
+        if (cosAngle < 0.99999) {
             Vector crossProduct = targetVector.getCrossProduct(currentVector);
             double turnAngle = acos(cosAngle);
             double turnDegrees = RADTODEG(turnAngle);
-            if(crossProduct.getZ() > 0.0) {
+            if (crossProduct.getZ() > 0.0) {
                 this->angle -= turnDegrees;
             } else {
                 this->angle += turnDegrees;
@@ -62,7 +62,7 @@ Vector Segment::getEndpoint() {
     Vector end = Vector(
             cos(angleInRad) * this->length,
             sin(angleInRad) * this->length
-            );
+    );
     return end;
 }
 
@@ -71,6 +71,6 @@ Vector Segment::getEndpoint(Vector root) {
     Vector end = Vector(
             cos(angleInRad) * this->length,
             sin(angleInRad) * this->length
-            );
+    );
     return end;
 }
