@@ -15,7 +15,7 @@ void Arm::setDestinationPoint(int x, int y) {
 }
 
 void Arm::addSegment(Segment segment) {
-    if(segments.empty()) {
+    if(!segments.empty()) {
         segment.setPreviousSegment = &segments.back();
     }
     segments.push_back(segment);
