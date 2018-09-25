@@ -16,7 +16,7 @@ Segment::Segment(double length, double angle) {
     this->angle = angle;
 }
 
-void Segment::turnTowardsDestinationPoint(Vector destination) {
+void Segment::turnTowardsDestinationPoint(Vector destination, Segment *lastSegment) {
     Vector rootPosition = this->getRootPosition();
     Vector currentEnd = Vector(
             cos(this->angle) * this->length,
@@ -25,8 +25,8 @@ void Segment::turnTowardsDestinationPoint(Vector destination) {
     double threshold = 1.0;
     if (currentEnd.squaredDistance(destination) > threshold) {
         Vector currentVector = Vector(
-                currentEnd.getX() - rootPosition.getX(),
-                currentEnd.getY() - rootPosition.getY()
+                lastSegment->getEndpoint().getX() - rootPosition.getX(),
+                lastSegment->getEndpoint().getY() - rootPosition.getY()
         );
         Vector targetVector = Vector(
                 destination.getX() - rootPosition.getX(),
@@ -60,8 +60,8 @@ Vector Segment::getEndpoint() {
     Vector root = this->getRootPosition();
     double angleInRad = DEGTORAD(this->angle);
     Vector end = Vector(
-            cos(angleInRad) * this->length,
-            sin(angleInRad) * this->length
+            root.getX() + cos(angleInRad) * this->length,
+            root.getY() + sin(angleInRad) * this->length
     );
     return end;
 }

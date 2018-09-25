@@ -22,7 +22,14 @@ void Arm::addSegment(Segment segment) {
 }
 
 void Arm::run() {
-    segments.back().turnTowardsDestinationPoint(this->destination);
+    int i = 1000;
+    Segment *lastSegment = &segments.back();
+    while(i) {
+        for (auto segment = segments.rbegin(); segment != segments.rend(); ++segment) {
+            segment->turnTowardsDestinationPoint(this->destination, lastSegment);
+        }
+        --i;
+    }
 }
 
 void Arm::print(bool printAllSegments) {
@@ -46,4 +53,8 @@ void Arm::printRealEndpoint() {
 
 void Arm::setThreshold(double distance) {
     this->threshold = distance;
+}
+
+bool Arm::isNearDestinationPoint() {
+    return segments.back().getEndpoint().isInRange(this->destination, this->threshold);
 }

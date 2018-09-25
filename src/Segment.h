@@ -12,7 +12,7 @@ class Segment {
 public:
     Segment(double length, double angle = 0 );
     Segment *setPreviousSegment;
-    void turnTowardsDestinationPoint(Vector);
+    void turnTowardsDestinationPoint(Vector, Segment*);
     void print();
     Vector getEndpoint();
     Vector getEndpoint(Vector root);

@@ -21,6 +21,7 @@ public:
     Vector add(Vector);
     Vector getCrossProduct(Vector vector);
     friend std::ostream& operator<<(std::ostream& os, Vector& dt);
+    bool isInRange(Vector target, double threshold);
 private:
     double x;
     double y;

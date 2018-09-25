@@ -28,7 +28,7 @@ public:
 
     void setThreshold(double distance);
 
-
+    bool isNearDestinationPoint();
 };
 
 

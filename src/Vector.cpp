@@ -64,3 +64,7 @@ Vector Vector::add(Vector other) {
             this->getY() + other.getY()
     );
 }
+
+bool Vector::isInRange(Vector target, double threshold) {
+    return this->squaredDistance(target) <= threshold;
+}
