@@ -31,7 +31,7 @@ double Vector::getZ() {
 }
 
 double Vector::squaredDistance(Vector vector) {
-    return sqrt(pow((this->getX() - this->getY()), 2) + pow((vector.getX() - vector.getY()), 2));
+    return sqrt(pow((this->getX() - vector.getX()), 2) + pow((this->getY() - vector.getY()), 2) + pow((this->getZ() - vector.getZ()), 2));
 }
 
 void Vector::normalize() {

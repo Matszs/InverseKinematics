@@ -24,7 +24,7 @@ void Arm::addSegment(Segment segment) {
 void Arm::run() {
     int i = 1000;
     Segment *lastSegment = &segments.back();
-    while(i) {
+    while(i && !isNearDestinationPoint()) {
         for (auto segment = segments.rbegin(); segment != segments.rend(); ++segment) {
             segment->turnTowardsDestinationPoint(this->destination, lastSegment);
         }
